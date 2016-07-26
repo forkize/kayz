@@ -1,31 +1,31 @@
 import request from 'superagent';
-import WaiterAction from '../actions/WaiterAction';
+import TableAction from '../actions/TableAction';
 
-class WaiterService {
-  submit(waiter) {
+class TableService {
+  submit(table) {
     return request
-      .post('/api/waiters')
-      .send(waiter)
+      .post('/api/tables')
+      .send(table)
       .end(function (err, res) {
         if (err) {
           return console.log('Error: ' + err);
         }
 
-        return WaiterAction.submit();
+        return TableAction.submit();
       });
   }
 
   list() {
     return request
-      .get('/api/waiters')
+      .get('/api/tables')
       .end(function (err, res) {
         if (err) {
           return console.log('Error: ' + err);
         }
 
-        return WaiterAction.list(res.body);
+        return TableAction.list(res.body);
       });
   }
 }
 
-export default new WaiterService();
+export default new TableService();

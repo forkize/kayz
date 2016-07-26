@@ -3,13 +3,13 @@ import AppDispatcher from '../core/Dispatcher';
 export default {
   submit: () => {
     AppDispatcher.dispatch({
-      actionType: 'isWaiterCreated'
+      actionType: 'isTableCreated'
     });
   },
 
   list: (list) => {
     AppDispatcher.dispatch({
-      actionType: 'waiterList',
+      actionType: 'tableList',
       list: list,
     });
   },

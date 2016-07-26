@@ -25,7 +25,7 @@ module.exports = function (config) {
   //Connecting to the database
   console.log('initializing database connection');
   mongoose.connect(dbURL);
-
+  
   connection.on('connected', function () {
     console.log('Mongo::connected ');
   });

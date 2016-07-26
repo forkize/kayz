@@ -1,5 +1,5 @@
 import React, {PropTypes, Component} from 'react';
-import styles from './CreateWaiter.css';
+import styles from './style.css';
 
 import WaiterStore from '../../../stores/WaiterStore';
 import WaiterService from '../../../services/WaiterService';
@@ -18,7 +18,7 @@ import withStyles from '../../../decorators/withStyles';
 
 @withStyles(styles)
 
-class Feedback extends Component {
+class CreateWaiter extends Component {
   static propTypes = {
     modalMode: PropTypes.bool,
   };
@@ -26,7 +26,7 @@ class Feedback extends Component {
   constructor() {
     super();
     this.state = {
-      isWaiterCreated: WaiterStore.isWaiterCreated,
+      isWaiterCreated: false,
       firstName: '',
       lastName: ''
     }
@@ -70,10 +70,6 @@ class Feedback extends Component {
         lastName,
       };
 
-      this.setState({
-        isWaiterCreated: true,
-      });
-
       WaiterService.submit(waiter);
     }
   };
@@ -87,7 +83,7 @@ class Feedback extends Component {
         animation show={this.props.showModal}
         onHide={this.props.onClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Create a new <b>waiter</b></Modal.Title>
+          <Modal.Title>New waiter</Modal.Title>
         </Modal.Header>
         <Modal.Body className="modal-body-flex">
           {!isWaiterCreated ?
@@ -103,21 +99,21 @@ class Feedback extends Component {
                     value={this.state.name}
                     ref="firstName"
                     type="text"
-                    hasFeedback/>
+                    hasCreateWaiter/>
                 </InputGroup>
               </FormGroup>
               <FormGroup>
                 <ControlLabel>Last name</ControlLabel>
                 <InputGroup>
                   <InputGroup.Addon>
-                    <i className="fa fa-envelope-o fa-fw"></i>
+                    <i className="fa fa-user fa-fw"></i>
                   </InputGroup.Addon>
                   <FormControl
                     onChange={this.handle.change.lastName.bind(this)}
                     value={this.state.email}
                     ref="lastName"
                     type="text"
-                    hasFeedback/>
+                    hasCreateWaiter/>
                 </InputGroup>
               </FormGroup>
               <ButtonToolbar className="pull-right">
@@ -143,4 +139,4 @@ class Feedback extends Component {
 
 }
 
-export default Feedback;
+export default CreateWaiter;

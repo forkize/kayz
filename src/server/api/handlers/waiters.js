@@ -4,7 +4,6 @@ function WaiterHandler(waiters) {
 }
 
 WaiterHandler.prototype.create = (req, res, next) => {
-
   return waiterService.create(req.body)
     .then(function () {
       res.sendStatus(201);
