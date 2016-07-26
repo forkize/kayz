@@ -33,3 +33,6 @@ npm start
 
 \***[B]** is Backend.  
 \***[F]** is Frontend.
+
+### P.S. ###
+I've seen that this task was the modified version of [this project](https://github.com/alahijani/zprojects). I think that's enough to have simple task, when projects becomes little bit complex, there was need to close all possible cases, which requires more time.
