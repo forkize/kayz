@@ -11,8 +11,8 @@ npm start
 
 ### Basic source guideline ###
 
-* **app/** - Front end.
-* **server/** - Back end.
+* **src/app/** - Front end.
+* **src/server/** - Back end.
 
 ### What was done ###
 
