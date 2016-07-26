@@ -19,6 +19,5 @@ Hi dear devs, I've tried to finish the whole application, but I did not have eno
 * **[B]** Edit ProductInOrder fields.
 * **[B]** Edit order fields.
 
-\***[B]** is Backend.
-
+\***[B]** is Backend.  
 \***[F]** is Frontend.
