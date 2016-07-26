@@ -47,3 +47,6 @@ It's not clear what does this field for.
 As I understand User's type is Manager and Waiter. So it's not clear, that whom can Manager create, only Waiter, or Manager too ?
 
 And also, if the Waiter was created, should he login via credential data, or what ?
+
+### P.P.S. ###
+If this status of commit was not enough to test my skills, please let me know (otanim617@gmail.com). I can finish it in upcoming weekend.
