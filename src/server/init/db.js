@@ -1,9 +1,6 @@
 var modelList = [
-  'Orders',
-  'ProductInOrders',
-  'Products',
-  'Tables',
-  'Waiters'
+  'Nodes',
+  'Jobs'
 ];
 
 var fs = require('fs');

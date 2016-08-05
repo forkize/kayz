@@ -7,11 +7,8 @@ var reflection = require('../lib/reflection');
 var app = module.exports = express();
 
 var fileList = [
-  'orders',
-  'productInOrders',
-  'products',
-  'tables',
-  'waiters'
+  'nodes',
+  'jobs'
 ];
 
 function initializeRoutes() {

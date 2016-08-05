@@ -1,13 +1,13 @@
 module.exports = {
   local: {
-    db: 'mongodb://localhost:27017/cafeManagerAssignment'
+    db: 'mongodb://localhost/kaydz'
   },
 
   development: {
-    db: 'mongodb://localhost:27017/cafeManagerAssignment'
+    db: 'mongodb://localhost/kaydz'
   },
 
   production: {
-    db: 'mongodb://localhost:27017/cafeManagerAssignment'
+    db: 'mongodb://localhost/kaydz'
   }
 };
