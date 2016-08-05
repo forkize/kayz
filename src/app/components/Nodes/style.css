@@ -1,0 +1,15 @@
+.centered {
+    position: fixed;
+    width: calc(100% - 100px);
+    top: 15%;
+    left: 100px;
+}
+
+.table-list {
+    display: table-cell;
+}
+
+.create-toolbar {
+    margin: 0 auto;
+    display: table;
+}
