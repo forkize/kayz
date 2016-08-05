@@ -1,5 +1,4 @@
 {
-  "name": "linguacode",
   "dependencies": {
     "bootstrap": "~3.3.6",
     "dejavu-sans": "~1.0.0",
