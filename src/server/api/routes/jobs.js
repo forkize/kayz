@@ -8,7 +8,7 @@ module.exports = function (app, jobs) {
     jobRouter
         .get('/jobs', jobs.list)
         .post('/job', jobs.create)
-        .patch('/jobs/isActive', jobs.change_state);
+        .patch('/jobs/:jobId/isActive', jobs.change_state);
 
     app.use('/', jobRouter);
 };

@@ -7,7 +7,7 @@ exports.find = function (queryData) {
         .find(queryData);
 };
 
-exports.finById = function (jobId) {
+exports.findById = function (jobId) {
     return Job
         .findById(jobId);
 };

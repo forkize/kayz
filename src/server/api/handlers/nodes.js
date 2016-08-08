@@ -17,24 +17,16 @@ NodeHandler.prototype.list = (req, res, next) => {
         limit = parseInt(req.query.limit);
     }
     if (req.query.isActive !== undefined){
-        queryData.state = req.query.isActive;
-    }
-    if (req.query.isNomad !== undefined){
-        queryData.nomad.installed = req.query.isNomad;
-    }
-    if (req.query.isConsul !== undefined) {
-        queryData.consul.installed = req.query.isConsul;
+        queryData.state = (req.query.isActive === 'true');
     }
     return nodeService.find(queryData)
         .then(function(nodes){
             nodes = nodes.slice(skip, skip + limit);
-            res.status(200).send({
-                'nodes': nodes
-            });
+            res.status(200).send(nodes);
         })
         .catch(function(err){
             res.status(500).send({
-                'message': err.message
+                'message': 'internal server error'
             })
         });
 };
@@ -53,7 +45,7 @@ NodeHandler.prototype.instance = (req, res, next) => {
         })
         .catch(function(err){
             res.status(500).send({
-                message: err.message
+                message: 'internal server error'
             })
         })
 };

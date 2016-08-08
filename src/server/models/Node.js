@@ -15,7 +15,6 @@ var nodeSchema = new Schema({
         client: Boolean
     },
     ip: String,
-    label: String,
     state: Boolean,
     cpu: String,
     ram: String

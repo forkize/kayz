@@ -1,6 +1,6 @@
 var modelList = [
-  'Nodes',
-  'Jobs'
+  'Node',
+  'Job'
 ];
 
 var fs = require('fs');

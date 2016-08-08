@@ -23,9 +23,7 @@ JobHandler.prototype.list = (req, res, next) => {
     return jobService.find(queryData)
         .then(function(jobs){
             jobs = jobs.slice(skip, skip + limit);
-            res.status(200).send({
-                'jobs': jobs
-            })
+            res.status(200).send(jobs)
         })
         .catch(function(err){
             res.status(500).send({
@@ -56,13 +54,13 @@ JobHandler.prototype.create = (req, res, next) => {
         })
         .catch(function(err){
             res.status(500).send({
-                'message': err.message
+                'message': 'internal server error'
             })
         })
 };
 
 
-Job.prototype.change_state = (req, res, next) => {
+JobHandler.prototype.change_state = (req, res, next) => {
     jobService.findById(req.params.jobId)
         .then(function(job){
             if (job == undefined){
@@ -88,7 +86,7 @@ Job.prototype.change_state = (req, res, next) => {
                 })
                 .catch(function(err){
                     res.status(500).send({
-                        'message': err.message
+                        'message': 'internal server error'
                     })
                 })
         })

@@ -8,7 +8,7 @@ module.exports = function() {
   bus.online()
     .then(function(){
       return bus.subscribeTo('web_node', (message) => {
-        if (lodash.isString(message)){
+          if (lodash.isString(message)){
           message = JSON.parse(message);
           Node.findOne({'name': message.name})
             .then(function(node){
