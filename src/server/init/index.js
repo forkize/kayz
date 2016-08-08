@@ -1,5 +1,7 @@
 var fileList = [
   'db',
+  'jobInfoSub',
+  'nodeInfoSub'
 ];
 
 module.exports = function (config) {

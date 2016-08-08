@@ -252,19 +252,19 @@ Client.prototype.ping = function() {
     }, 5000);
 };
 
-function parse_nomad_agent_command(arguments){
+function parse_nomad_agent_command(argument){
     var cmd = "nomad agent ";
     var cfg = {};
-    if (arguments.server) {
+    if (argument.server) {
         cfg.server = {
             "enabled": true,
-            "bootstrap_expect": arguments.bootstrap
+            "bootstrap_expect": argument.bootstrap
         };
     }
-    if (arguments.client) {
+    if (argument.client) {
         cfg.client = {
             "enabled": true,
-            "servers": arguments.servers
+            "servers": argument.servers
         };
     }
     cfg.bind_addr = ip.address();
@@ -274,9 +274,9 @@ function parse_nomad_agent_command(arguments){
         "rpc": ip.address() + ":4647",
         "serf": ip.address() + ":4648"
     };
-    cfg.name = arguments.node;
-    cfg.region = arguments.region;
-    cfg.datacenter = arguments.dc;
+    cfg.name = argument.node;
+    cfg.region = argument.region;
+    cfg.datacenter = argument.dc;
     cfg.consul = {
         "address": ip.address() + ":8500"
     };
@@ -284,19 +284,19 @@ function parse_nomad_agent_command(arguments){
     return [cmd, cfg];
 }
 
-function parse_consul_agent_command(arguments){
+function parse_consul_agent_command(argument){
     var cmd = "consul agent -config-file consul_config.json";
     var cfg = {
-        "datacenter": arguments.dc,
+        "datacenter": argument.dc,
         "data_dir": "/opt/consul",
         "log_level": "INFO",
-        "node_name": arguments.node,
+        "node_name": argument.node,
         "bind_addr": ip.address(),
         "client_addr": ip.address()
     };
-    if (arguments.server){
+    if (argument.server){
         cfg.server = true;
-        cfg.bootstrap_expect = arguments.bootstrap;
+        cfg.bootstrap_expect = argument.bootstrap;
     }
     return [cmd, cfg];
 }
