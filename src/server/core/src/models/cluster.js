@@ -62,7 +62,6 @@ Cluster.prototype.getNodeInfo = function () {
                     ram = 100*body.Memory.Available/body.Memory.Total;
                     nodeItem.cpu = cpu;
                     nodeItem.ram = ram;
-                    console.log(nodeItem.cpu, nodeItem.ram)
                 }
             });
         }
@@ -76,7 +75,6 @@ Cluster.prototype.getJobInfo = function(bus){
     self.nodes.forEach(function(nodeItem){
         if(nodeItem.nomad.server){
             request.get('http://' + nodeItem.getIp() + ":4646/v1/jobs", function(error, response, body){
-                console.log(body);
                 if(!error && response.statusCode == 200){
                     var jobs = JSON.parse(body);
                     jobs.forEach(function(jobItem){

@@ -164,7 +164,7 @@ Client.prototype.AddSubs = function(){
                 });
                 break;
             case 'run_job':
-                fs.writeFile('./job.json', JSON.stringify(message.config, null, 2) , 'utf-8', function(){
+                /*fs.writeFile('./job.json', JSON.stringify(message.config, null, 2) , 'utf-8', function(){
                     command = execute('nomad run job.json');
                     command.stdout.on('data', function (data) {
                         console.log(data);
@@ -186,6 +186,14 @@ Client.prototype.AddSubs = function(){
                         exitMsg.output = code;
                         self.bus.publishTo(Channels.ConsoleResponse + message.id, exitMsg);
                     });
+                });*/
+                request({
+                    url: "http://" + ip.address() + ":4646/v1/jobs",
+                    method: "POST",
+                    json: true,
+                    body: {'Job': message.config}
+                }, function (error, response, body){
+                    console.log(response.status);
                 });
                 break;
         }

@@ -1,10 +1,11 @@
-var Kayz = require('../core/kayz');
+var Kayz = require('../core');
 var mongoose = require('mongoose');
 var Node = mongoose.model('Node');
 var lodash = require('lodash');
+var Config = require('../config/config');
 
 module.exports = function() {
-  var bus = new Kayz.Bus('redis://40.76.39.65:6379');
+  var bus = new Kayz.Bus(Config.redis);
   bus.online()
     .then(function(){
       return bus.subscribeTo('web_node', (message) => {

@@ -2,7 +2,8 @@
  * Created by david on 8/5/16.
  */
 let jobService;
-let Kayz = require('../../core/kayz');
+let Kayz = require('../../core');
+var Config = require('../../config/config');
 function JobHandler(jobs) {
     jobService = jobs;
 }
@@ -41,7 +42,7 @@ JobHandler.prototype.create = (req, res, next) => {
         return;
     }
     var conf = JSON.parse(req.body.configuration);
-    let bus = new Kayz.Bus('redis://40.76.39.65:6379');
+    let bus = new Kayz.Bus(Config.redis);
     bus.online()
         .then(function(){
             return bus.publishTo(Kayz.Channels.Console, {
@@ -69,7 +70,7 @@ JobHandler.prototype.change_state = (req, res, next) => {
                 });
                 return;
             }
-            let bus = new Kayz.Bus('redis://40.76.39.65:6379');
+            let bus = new Kayz.Bus(Config.redis);
             bus.online()
                 .then(function(){
                     return bus.publishTo(Kayz.Channels.Console, {

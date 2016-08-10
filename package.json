@@ -5,6 +5,9 @@
     "email": "otanim617@gmail.com",
     "url": "http://www.otanim.com/"
   },
+  "bin": {
+    "kayz": "./kayz"
+  },
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "babel-core": "5.8.25",

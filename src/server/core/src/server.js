@@ -114,8 +114,8 @@ Server.prototype.SubscribeToCommmandChannel = function(){
 
         switch (message.type) {
             case 'run_job':
-                var region = message.config.job.Region;
-                var nodeItem = cluster.getNodebyRegion(region);
+                var region = message.config.Job.Region;
+                var nodeItem = Cluster.getNodebyRegion(region);
                 if (nodeItem){
                     self.bus.publishTo(nodeItem.getName(), message);
                     return;
@@ -165,7 +165,7 @@ Server.prototype.SubscribeToCommmandChannel = function(){
 
     }
 
-    debug('Kayz server started.');
+    console.log('[info] Kayz server started.');
     return self.bus.subscribeTo(Channels.Console, _consoleHandler);
 };
 

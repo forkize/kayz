@@ -1,13 +1,15 @@
 /**
  * Created by david on 8/4/16.
  */
-var Kayz = require('../core/kayz');
+var Kayz = require('../core');
 var mongoose = require('mongoose');
 var Job = mongoose.model('Job');
 var lodash = require('lodash');
+var Config = require('../config/config');
 
 module.exports = function(){
-  var bus = new Kayz.Bus('redis://40.76.39.65:6379');
+  console.log(Config);
+  var bus = new Kayz.Bus(Config.redis);
   bus.online()
     .then(function(){
       return bus.subscribeTo('web_job', function(message){
@@ -15,7 +17,7 @@ module.exports = function(){
           message = JSON.parse(message);
           Job.findOne({'name': message.Name})
             .then(function(job){
-              if (job == undefined){
+              if (!job){
                 job = new Job({
                   name: message.Name,
                   isActive: true
