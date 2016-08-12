@@ -1,5 +1,6 @@
 {
-  "private": true,
+  "name": "kayz",
+  "version": "0.1.6",
   "author": {
     "name": "Arman Yeghiazaryan",
     "email": "otanim617@gmail.com",
@@ -18,6 +19,7 @@
     "brewser": "^0.5.1",
     "busmq": "^1.5.4",
     "classnames": "^2.2.3",
+    "commander": "^2.9.0",
     "compression": "^1.6.1",
     "cookie-parser": ">= 1.3.2",
     "cryptr": "^2.0.0",
@@ -135,7 +137,7 @@
     ]
   },
   "scripts": {
-    "postinstall": "bower cache clean && bower install",
+    "postinstall": "bower cache clean --allow-root && bower install --allow-root",
     "lint": "eslint src tools && jscs src tools",
     "csslint": "csscomb src/components --lint --verbose",
     "csscomb": "csscomb src/components --verbose",

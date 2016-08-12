@@ -2,7 +2,6 @@
 var program = require('commander')
   , os = require("os")
   , Actions = require("./src/server/core/src").Actions
-  , Config = require("./src/server/config/config")
   , execute = require('child_process').exec;
 
 program
@@ -56,9 +55,9 @@ program
   .action(Actions.run_job);
 program
   .command('ui')
-  .option('-r, --redis [redis]', 'Redis server', 'redis://127.0.0.1:6379')
+  .description('Run Kayz ui')
   .action(function(options){
-      var command = execute('npm start');
+      var command = execute('npm start', {'cwd': __dirname + '/build'});
       command.stdout.on('data', function(data){
           console.log(data);
       });
